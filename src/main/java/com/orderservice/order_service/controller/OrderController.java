@@ -1,6 +1,8 @@
 package com.orderservice.order_service.controller;
 
-import com.orderservice.order_service.dto.OrderDto;
+
+import com.orderservice.order_service.dto.OrderRequest;
+import com.orderservice.order_service.dto.OrderResponse;
 import com.orderservice.order_service.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,8 +18,8 @@ public class OrderController {
 
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<OrderDto> createOrder(@RequestBody OrderDto orderDto) {
-        return ResponseEntity.ok(orderService.createOrder(orderDto));
+    public ResponseEntity<OrderResponse> createOrder(@RequestBody OrderRequest orderRequest) {
+        return ResponseEntity.ok(orderService.createOrder(orderRequest));
     }
 
 }
