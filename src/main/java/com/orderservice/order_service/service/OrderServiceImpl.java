@@ -42,7 +42,7 @@ public class OrderServiceImpl implements OrderService {
         // Convert the saved entity back to DTO
         OrderDto orderDto=orderConversion.toDto(savedOrder);
         // Call the payment service to create a payment
-        String paymentServiceUrl = "http://localhost:8082/api/payments/create"; // Adjust the URL as needed
+        String paymentServiceUrl = "http://localhost:8084/api/payments/doPayment"; // Adjust the URL as needed
         ResponseEntity<PaymentDto> paymentDtoResponseEntity = restTemplate.postForEntity(
                 paymentServiceUrl,
                 orderRequest.getPaymentDto(),
